@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <style>   
+    * {
+    margin: 0 auto;
+    padding: 0 auto;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Source Sans 3", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    
+    margin-bottom: 100px;
+}
+.header_divider_users{
+    width: 100%;
+    height: 40px;
+    margin-top: 0;
+}
+
+.icon_text_divider{
+    width: 100%;
+    display: flex;
+    justify-content:start;
+    align-items: center;
+    padding-top:20px;
+
+}
+.login_text_header{
+    font-size: 18px;
+    text-decoration: none;
+    color: #ffffff;
+    cursor: pointer;
+}
+.container {
+    width: 100%;
+}
+.user_divider{
+    width: 100%;
+   justify-content: start;
+   text-align: start;
+   align-items: start;
+}
+.profile_img_divider {
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+    object-fit: cover;
+   margin-left: 20px;
+   justify-content: start;
+   align-items: start;
+}
+
+.profile_image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.profile_and_btn {
+    display: flex;
+
+}
+
+.profile_info_divider {
+    display: block;
+    justify-content: start;
+    align-items: start;
+  
+
+}
+
+.edit_profile_btn_divider {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.profile_edit_btn {
+    height: 35px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    background: rgba(74, 74, 74, 0.925);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    text-align: start;
+    border: none;
+    cursor: pointer;
+}
+
+.profile_name {
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 5px;
+}
+
+.name_and_icon {
+    margin: 0;
+    width: 100px;
+    display: flex;
+    cursor: pointer;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+}
+
+.profile_info_text_divider {
+    display: block;
+    margin-left: 0;
+}
+
+.profile_info_text {
+    font-size: 14px;
+    display: block;
+    margin: 5px 20px;
+    font-weight: bold;
+    
+}
+.news_input_profile{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+label{
+    margin-left: 20px;
+}
+.line_user{
+    width: 100%;
+    height: 1px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+.post_wiew_number{
+  width: 100%;
+    justify-content: center;
+    display: flex;
+    font-size: 14px;
+    text-align: center;
+    align-items:center;
+    margin-top: 10px;
+}
+
+.post_icon{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin-top: 10px;
+}
+
+.post_img_divider{
+    width: 100%;
+    margin-top: 10px;
+    gap: 3px;
+    display: grid;
+    grid-template-columns: repeat(3,4fr);
+    text-align: center;
+    align-items: center;
+}
+
+.post_image{
+    width:100%;
+    height: 150px;
+    object-fit: cover;
+    
+}
+
+
+  </style>
+  <body>
+
+    <form class="container-sm" action="index.html" method="html">
+        <div class="container-fluid form-group mb-3 w-100 d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+            <div class="container-fluid shadow p-3 mb-5 bg-white rounded">
+        <div  class="container-fluid mb-3">
+          <label class="container-fluid form-label form_login" for="exampleInputEmail1">Email address</label>
+          <input class="container-fluid form-control form_login w-100" type="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Email" required>
+          <small  id="emailHelp" class="container-fluid form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="container-fluid form-group">
+          <label class="form-label form_login" for="exampleInputPassword1">Password</label>
+          <input type="password" class="container-fluid form-control form_login w-100" style="width: 350px;" id="exampleInputPassword1" placeholder="Enter Password" required>
+        </div>
+        <div class="container-fluid form-check">
+          <input type="checkbox" class="container-fluid form-check-input" id="exampleCheck1" required>
+          <label class=" container-fluid" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="container-fluid btn btn-primary">Submit</button>
+      </div>
+        </div>
+      </form>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>

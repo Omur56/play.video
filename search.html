@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="theme-color"
+      content="#FFFFFF"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#872e4e"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap"
+    />
+    <link rel="stylesheet" href="./css/style1.css" />
+    <link rel="stylesheet" href="./css/search.style.css" />
+    <link rel="stylesheet" href="./css/darkmode.css" />
+
+    <link href="https://fonts.cdnfonts.com/css/hiatus" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+        
+      * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --base-color: white;
+    --base-variant: #8d8d8d;
+    --text-color: #232738;
+    --primary-color: #3a435d;
+    --accent-color: #0071ff;
+}
+
+
+* {
+    margin: 0 auto;
+    padding: 0 auto;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Source Sans 3", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+
+}
+
+.darkmode {
+    --base-color: #070b1d;
+    --base-variant: #101425;
+    --text-color: #000000;
+    --secondary-text: #a4a5b8;
+    --primary-color: #3a435d;
+    --accent-color: #0071ff;
+
+}
+
+.search_divider {
+    width: 100%;
+    display: block;
+}
+
+.search_main {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 0;
+}
+
+.search {
+    width: 400px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    padding-left: 10px;
+    background-color: #cccccc;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.search_list {
+    width: 400px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 5fr);
+    object-fit: cover;
+    gap: 50px;
+
+}
+
+.search_video_photo {
+    width: 100px;
+    height: 150px;
+    border-radius: 20px;
+    object-fit: cover;
+    margin-top: 20px;
+
+
+
+}
+
+.search_video_photo:hover {
+    transform: scale(2.2);
+    transition: all 2s ease-in-out;
+}
+
+.video_and_photo_search_img {
+    width: 100px;
+    height: 150px;
+    border-radius: 10px;
+    object-fit: cover;
+
+}
+
+nav {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    background-color: #ffffff;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+
+
+
+.icon_divider {
+    width: 50px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    object-fit: contain;
+
+}
+
+
+.icon_divider_scasan {
+    display: flex;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    cursor: pointer;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.menu_text {
+    color: #000000;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    margin-top: 5px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+
+
+
+
+}
+
+.menu_text:active {
+    color: #539DF3;
+
+}
+
+
+
+.container {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    margin-top: 50px;
+}
+
+.name_and_icon {
+    gap: 20px;
+}
+
+.image_divider_main {
+    width: 600px;
+    height: 80vh;
+    display: block;
+    margin-top: 70px;
+}
+
+.text_h1 {
+    font-size: 116px;
+    color: #000000;
+    margin-top: 87px;
+    line-height: auto;
+    letter-spacing: 8.5%;
+    font-weight: bold;
+    font-family: 'Hiatus', sans-serif;
+}
+
+.line {
+    width: 100%;
+    border: 1px solid rgb(0, 0, 0);
+    display: flex;
+    position: fixed;
+    bottom: 0;
+}
+
+
+
+.info_main {
+    display: block;
+}
+
+.rectangle {
+    width: 100%;
+    object-fit: contain;
+}
+
+.video_text_divider {
+    width: 100%;
+    height: 50px;
+    overflow: auto;
+}
+
+video {
+    width: 100%;
+    object-fit: contain;
+}
+
+.video_info {
+    width: 100%;
+}
+
+.video_text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: start;
+    overflow: auto;
+    padding: 5px;
+    margin: 5px;
+
+}
+
+
+.header_logo_nav {
+    display: inline-flex;
+    height: 50px;
+    gap: 10px;
+
+}
+
+.header_logo {
+    width: 100px;
+    margin: 5px 10px;
+}
+
+.logo_text_header {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 10px;
+    text-decoration: none;
+
+    cursor: pointer;
+    font-family: "Source Sans 3", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin-top: 20px;
+
+
+
+}
+:root {
+    --base-color: white;
+    --base-variant: #8d8d8d;
+    --text-color: #232738;
+    --primary-color: #3a435d;
+    --accent-color: #0071ff;
+}
+
+
+* {
+    margin: 0 auto;
+    padding: 0 auto;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Source Sans 3", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+
+}
+
+.darkmode {
+    --base-color: #070b1d;
+    --base-variant: #101425;
+    --text-color: #000000;
+    --secondary-text: #a4a5b8;
+    --primary-color: #3a435d;
+    --accent-color: #0071ff;
+
+}
+
+.header_divider {
+    display: block;
+    width: 100%;
+    height: 40px;
+    margin-top: 0;
+
+}
+
+
+
+.header_logo_nav {
+    display: inline-flex;
+    height: 50px;
+    gap: 10px;
+
+}
+
+.header_logo {
+    width: 100px;
+    margin: 5px 10px;
+}
+
+.logo_text_header {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 10px;
+    text-decoration: none;
+
+    cursor: pointer;
+    font-family: "Source Sans 3", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin-top: 20px;
+
+
+
+}
+
+.scrol_header {
+    width: 100%;
+    height: 100px;
+    overflow: auto;
+    counter-increment: gallery-cell;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+
+.scroil_img {
+    display: flex;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    gap: 20px;
+    object-fit: cover;
+    justify-content: center;
+    align-items: center;
+   
+
+
+}
+
+.scrol_image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+
+
+}
+
+nav {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    background-color: #ffffff;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+
+
+
+.icon_divider {
+    width: 50px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    object-fit: contain;
+
+}
+
+
+.icon_divider_scasan {
+    display: flex;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    cursor: pointer;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.menu_text {
+    color: #000000;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    margin-top: 5px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+
+
+
+
+}
+
+.menu_text:active {
+    color: #539DF3;
+
+}
+
+
+
+.container {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    margin-top: 50px;
+}
+
+.name_and_icon {
+    gap: 20px;
+}
+
+.image_divider_main {
+    width: 600px;
+    height: 80vh;
+    display: block;
+    margin-top: 70px;
+}
+
+.text_h1 {
+    font-size: 116px;
+    color: #000000;
+    margin-top: 87px;
+    line-height: auto;
+    letter-spacing: 8.5%;
+    font-weight: bold;
+    font-family: 'Hiatus', sans-serif;
+}
+
+.line {
+    width: 100%;
+    border: 1px solid rgb(0, 0, 0);
+    display: flex;
+    position: fixed;
+    bottom: 0;
+}
+
+
+
+.info_main {
+    display: block;
+}
+
+.rectangle {
+    width: 100%;
+    object-fit: contain;
+}
+
+.video_text_divider {
+    width: 100%;
+    height: 50px;
+    overflow: auto;
+}
+
+video {
+    width: 100%;
+    object-fit: contain;
+}
+
+.video_info {
+    width: 100%;
+}
+
+.video_text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: start;
+    overflow: auto;
+    padding: 5px;
+    margin: 5px;
+
+}
+:root{
+--base-color: white;
+--base-variant:#8d8d8d;
+--text-color:#232738;
+--primary-color:#3a435d;
+--accent-color:#0071ff;
+}
+.darkmode{
+    --base-color: #000000;
+--base-variant:#000000;
+--text-color:#ffffff;
+--secondary-text:#a4a5b8;
+--primary-color:#3a435d;
+--accent-color:#0071ff;
+}
+
+
+html{
+    font-family: Poppins;
+}
+body{
+    background-color: var(--base-color);
+    color:var(--text-color)
+}
+#theme-switch{
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--base-variant);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 20px;
+    border: none;
+}
+
+#theme-switch img{
+    fill: var(--primary-color);
+}
+#theme-switch img:last-child{
+    display: none;
+}
+.darkmode #theme-switch img:first-child{
+    display: none;
+    
+}
+
+.darkmode #theme-switch img:last-child{
+    display: block;
+}
+
+.darkmode nav {
+    background-color: var(--base-variant);
+}
+* {
+    margin: 0 auto;
+    padding: 0 auto;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Source Sans 3", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    
+    margin-bottom: 100px;
+}
+.header_divider_users{
+    width: 100%;
+    height: 40px;
+    margin-top: 0;
+}
+
+.icon_text_divider{
+    width: 100%;
+    display: flex;
+    justify-content:start;
+    align-items: center;
+    padding-top:20px;
+
+}
+.login_text_header{
+    font-size: 18px;
+    text-decoration: none;
+    color: #ffffff;
+    cursor: pointer;
+}
+.container {
+    width: 100%;
+}
+.user_divider{
+    width: 100%;
+   justify-content: start;
+   text-align: start;
+   align-items: start;
+}
+.profile_img_divider {
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+    object-fit: cover;
+   margin-left: 20px;
+   justify-content: start;
+   align-items: start;
+}
+
+.profile_image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.profile_and_btn {
+    display: flex;
+
+}
+
+.profile_info_divider {
+    display: block;
+    justify-content: start;
+    align-items: start;
+  
+
+}
+
+.edit_profile_btn_divider {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.profile_edit_btn {
+    height: 35px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    background: rgba(74, 74, 74, 0.925);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    text-align: start;
+    border: none;
+    cursor: pointer;
+}
+
+.profile_name {
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 5px;
+}
+
+.name_and_icon {
+    margin: 0;
+    width: 100px;
+    display: flex;
+    cursor: pointer;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+}
+
+.profile_info_text_divider {
+    display: block;
+    margin-left: 0;
+}
+
+.profile_info_text {
+    font-size: 14px;
+    display: block;
+    margin: 5px 20px;
+    font-weight: bold;
+    
+}
+.news_input_profile{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+label{
+    margin-left: 20px;
+}
+.line_user{
+    width: 100%;
+    height: 1px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+.post_wiew_number{
+  width: 100%;
+    justify-content: center;
+    display: flex;
+    font-size: 14px;
+    text-align: center;
+    align-items:center;
+    margin-top: 10px;
+}
+
+.post_icon{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin-top: 10px;
+}
+
+.post_img_divider{
+    width: 100%;
+    margin-top: 10px;
+    gap: 3px;
+    display: grid;
+    grid-template-columns: repeat(3,4fr);
+    text-align: center;
+    align-items: center;
+}
+
+.post_image{
+    width:100%;
+    height: 150px;
+    object-fit: cover;
+    
+}
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="theme-switch">
+      <img
+        src="light_mode_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24 (1).svg"
+        alt="light_mode_svg"
+      />
+      <img
+        src="dark_mode_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg"
+        alt="dark_mode_svg"
+      />
+    </button>
+    <header>
+      <div class="header_logo_nav">
+        <a class="header_logo_link" href="#">
+          <img
+            class="header_logo"
+            src="cdnlogo.com_play.svg"
+            alt="logo"
+        /></a>
+
+        <!-- <a class="message_header_logo_link" href="#"><img class="message_logo_svg" src="./public/icons8-message-50.png" alt="message_svg"></a> -->
+      </div>
+    </header>
+    <main>
+      <section>
+        <div class="search_divider">
+          <div class="search_main">
+            <input class="search" type="search" placeholder="Search" />
+          </div>
+          <div class="search_list">
+            <div class="search_video_photo">
+              <img
+                class="video_and_photo_search_img"
+                src="Rectangle 988.png"
+                alt="photo"
+              />
+            </div>
+
+            <div class="search_video_photo">
+              <img
+                class="video_and_photo_search_img"
+                src="front-left-side-47.avif"
+                alt="photo"
+              />
+            </div>
+
+            <div class="search_video_photo">
+              <img
+                class="video_and_photo_search_img"
+                src="images_(1).jpg"
+                alt="photo"
+              />
+            </div>
+
+            <div class="search_video_photo">
+              <img
+                class="video_and_photo_search_img"
+                src="demo.png"
+                alt="photo"
+              />
+            </div>
+
+            <div class="search_video_photo">
+              <img
+                class="video_and_photo_search_img"
+                src="images.jpg"
+                alt="photo"
+              />
+            </div>
+
+            <div class="search_video_photo">
+              <video class="video_and_photo_search_img" width="400px" controls autoplay muted>
+                <source
+                  src="scenery_quran1_engli_1717677435378.mp4"
+                  type="video/mp4"
+                />
+
+              </video>
+              
+            </div>
+            
+
+            <div class="search_video_photo">
+              <img
+                class="video_and_photo_search_img"
+                src="Rectangle 988.png"
+                alt="photo"
+              />
+            </div>
+
+            <div class="search_video_photo">
+              <img
+                class="video_and_photo_search_img"
+                src="Rectangle 988.png"
+                alt="photo"
+              />
+            </div>
+
+            <div class="search_video_photo">
+              <img
+                class="video_and_photo_search_img"
+                src="Rectangle 988.png"
+                alt="photo"
+              />
+            </div>
+
+            <div class="search_video_photo">
+              <video class="video_and_photo_search_img" width="400px" controls autoplay muted>
+                <source
+                  src="scenery_quran1_engli_1717677435378.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </div>
+            <iframe width="260" height="215" src="https://www.youtube.com/embed/rJcyOgKoJfM?si=xdX2fGJBJvM5ZfjE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <nav>
+        <section>
+          <div class="navbar">
+            <div class="icon_divider">
+              <a class="menu_text" href="index.html" method="html"
+                ><img
+                  class="menu_icon"
+                  src="home_icon.svg"
+                  alt="home"
+              /></a>
+            </div>
+            <div class="icon_divider">
+              <a class="menu_text" href="search.html"
+                ><img
+                  class="menu_icon"
+                  src="li_search.svg"
+                  alt="search"
+              /></a>
+            </div>
+            <div class="icon_divider_scasan">
+              <!-- <img class="menu_icon" src="/src/public/icons8-send-letter-50.png" alt="scan"> -->
+
+              <img
+                width="30"
+                height="30"
+                src="add_a_photo_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg"
+                alt="camera"
+              />
+            </div>
+            <div class="icon_divider">
+              <a class="menu_text" href="index.html"
+                ><img
+                  class="menu_icon"
+                  src="li_clock.svg"
+                  alt="clock"
+              /></a>
+            </div>
+            <div class="icon_divider">
+              <a class="menu_text" href="user.html"
+                ><img
+                  class="menu_icon"
+                  src="li_user.svg"
+                  alt="user"
+              /></a>
+            </div>
+          </div>
+        </section>
+      </nav>
+    </footer>
+    <script>
+      let darkmode = localStorage.getItem('darkmode')
+const themeSwitch = document.getElementById('theme-switch')
+
+
+const enableDarkmode = () => {
+  document.body.classList.add('darkmode')
+  localStorage.setItem('darkmode', 'active')
+}
+const disableDarkmode = () => {
+  document.body.classList.remove('darkmode')
+  localStorage.setItem('darkmode', null)
+}
+
+if (darkmode === 'active') enableDarkmode()
+
+themeSwitch.addEventListener("click", () =>{
+  darkmode = localStorage.getItem('darkmode')
+  darkmode !== "active" ? enableDarkmode() : disableDarkmode()
+})
+  </script>
+  <script type="text/javascript" src="darkmode.js" defer>
+
+  </script>
+  <script src="script.js"></script>
+    <script type="text/javascript" src="darkmode.js" defer></script>
+    <script src="script.js"></script>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Kod Yaradıcı</title>
+    <link rel="stylsheet"  href="./css/qrcode.css">
+    <meta name="theme-color" content="#FF0000" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#872e4e" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="./css/qrcode.css">
+    <style>
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, #007BFF, #00bfff);
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 300px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    transform-origin: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background: linear-gradient(45deg, #007BFF, #00bfff);
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+}
+
+button:active {
+    transform: scale(0.95);
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.1) 50%,
+        rgba(255,255,255,0) 100%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+button:hover::after {
+    transform: translateX(100%);
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+}
+
+#qrCodeContainer {
+    margin-top: 20px;
+}
+
+#qrCode {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.hidden {
+    display: none;
+}
+:root {
+    --base-color: white;
+    --base-variant: #8d8d8d;
+    --text-color: #232738;
+    --primary-color: #3a435d;
+    --accent-color: #0071ff;
+}
+
+
+* {
+    margin: 0 auto;
+    padding: 0 auto;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Source Sans 3", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+
+}
+
+.darkmode {
+    --base-color: #070b1d;
+    --base-variant: #101425;
+    --text-color: #000000;
+    --secondary-text: #a4a5b8;
+    --primary-color: #3a435d;
+    --accent-color: #0071ff;
+
+}
+
+.header_divider {
+    display: block;
+    width: 100%;
+    height: 40px;
+    margin-top: 0;
+
+}
+
+
+
+.header_logo_nav {
+    display: inline-flex;
+    height: 50px;
+    gap: 10px;
+
+}
+
+.header_logo {
+    width: 100px;
+    margin: 5px 10px;
+}
+
+.logo_text_header {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 10px;
+    text-decoration: none;
+
+    cursor: pointer;
+    font-family: "Source Sans 3", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    margin-top: 20px;
+
+
+
+}
+
+.scrol_header {
+    width: 100%;
+    height: 100px;
+    overflow: auto;
+    counter-increment: gallery-cell;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+
+.scroil_img {
+    display: flex;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    gap: 20px;
+    object-fit: cover;
+    justify-content: center;
+    align-items: center;
+   
+
+
+}
+
+.scrol_image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+
+
+}
+
+nav {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    background-color: #ffffff;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+
+
+
+.icon_divider {
+    width: 50px;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    object-fit: contain;
+
+}
+
+
+.icon_divider_scasan {
+    display: flex;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    cursor: pointer;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.menu_text {
+    color: #000000;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    margin-top: 5px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+
+
+
+
+}
+
+.menu_text:active {
+    color: #539DF3;
+
+}
+
+
+
+.container {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    margin-top: 50px;
+}
+
+.name_and_icon {
+    gap: 20px;
+}
+
+.image_divider_main {
+    width: 600px;
+    height: 80vh;
+    display: block;
+    margin-top: 70px;
+}
+
+.text_h1 {
+    font-size: 116px;
+    color: #000000;
+    margin-top: 87px;
+    line-height: auto;
+    letter-spacing: 8.5%;
+    font-weight: bold;
+    font-family: 'Hiatus', sans-serif;
+}
+
+.line {
+    width: 100%;
+    border: 1px solid rgb(0, 0, 0);
+    display: flex;
+    position: fixed;
+    bottom: 0;
+}
+
+
+
+.info_main {
+    display: block;
+}
+
+.rectangle {
+    width: 100%;
+    object-fit: contain;
+}
+
+.video_text_divider {
+    width: 100%;
+    height: 50px;
+    overflow: auto;
+}
+
+video {
+    width: 100%;
+    object-fit: contain;
+}
+
+.video_info {
+    width: 100%;
+}
+
+.video_text {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: start;
+    overflow: auto;
+    padding: 5px;
+    margin: 5px;
+
+}
+:root{
+--base-color: white;
+--base-variant:#8d8d8d;
+--text-color:#232738;
+--primary-color:#3a435d;
+--accent-color:#0071ff;
+}
+.darkmode{
+    --base-color: #000000;
+--base-variant:#000000;
+--text-color:#ffffff;
+--secondary-text:#a4a5b8;
+--primary-color:#3a435d;
+--accent-color:#0071ff;
+}
+
+
+html{
+    font-family: Poppins;
+}
+body{
+    background-color: var(--base-color);
+    color:var(--text-color)
+}
+#theme-switch{
+    height: 30px;
+    width: 30px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--base-variant);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 20px;
+    border: none;
+}
+
+#theme-switch img{
+    fill: var(--primary-color);
+}
+#theme-switch img:last-child{
+    display: none;
+}
+.darkmode #theme-switch img:first-child{
+    display: none;
+    
+}
+
+.darkmode #theme-switch img:last-child{
+    display: block;
+}
+
+.darkmode nav {
+    background-color: var(--base-variant);
+}
+* {
+    margin: 0 auto;
+    padding: 0 auto;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Source Sans 3", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    
+    margin-bottom: 100px;
+}
+.header_divider_users{
+    width: 100%;
+    height: 40px;
+    margin-top: 0;
+}
+
+.icon_text_divider{
+    width: 100%;
+    display: flex;
+    justify-content:start;
+    align-items: center;
+    padding-top:20px;
+
+}
+.login_text_header{
+    font-size: 18px;
+    text-decoration: none;
+    color: #ffffff;
+    cursor: pointer;
+}
+.container {
+    width: 100%;
+}
+.user_divider{
+    width: 100%;
+   justify-content: start;
+   text-align: start;
+   align-items: start;
+}
+.profile_img_divider {
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+    object-fit: cover;
+   margin-left: 20px;
+   justify-content: start;
+   align-items: start;
+}
+
+.profile_image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.profile_and_btn {
+    display: flex;
+
+}
+
+.profile_info_divider {
+    display: block;
+    justify-content: start;
+    align-items: start;
+  
+
+}
+
+.edit_profile_btn_divider {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.profile_edit_btn {
+    height: 35px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    background: rgba(74, 74, 74, 0.925);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    text-align: start;
+    border: none;
+    cursor: pointer;
+}
+
+.profile_name {
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 5px;
+}
+
+.name_and_icon {
+    margin: 0;
+    width: 100px;
+    display: flex;
+    cursor: pointer;
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+}
+
+.profile_info_text_divider {
+    display: block;
+    margin-left: 0;
+}
+
+.profile_info_text {
+    font-size: 14px;
+    display: block;
+    margin: 5px 20px;
+    font-weight: bold;
+    
+}
+.news_input_profile{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+label{
+    margin-left: 20px;
+}
+.line_user{
+    width: 100%;
+    height: 1px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+.post_wiew_number{
+  width: 100%;
+    justify-content: center;
+    display: flex;
+    font-size: 14px;
+    text-align: center;
+    align-items:center;
+    margin-top: 10px;
+}
+
+.post_icon{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    margin-top: 10px;
+}
+
+.post_img_divider{
+    width: 100%;
+    margin-top: 10px;
+    gap: 3px;
+    display: grid;
+    grid-template-columns: repeat(3,4fr);
+    text-align: center;
+    align-items: center;
+}
+
+.post_image{
+    width:100%;
+    height: 150px;
+    object-fit: cover;
+    
+}
+    </style>
+
+</head>
+<body>
+    <script>
+        document.getElementById('generateButton').addEventListener('click', function() {
+    const urlInput = document.getElementById('urlInput').value;
+    const message = document.getElementById('message');
+    const qrCodeContainer = document.getElementById('qrCodeContainer');
+    const qrCodeDiv = document.getElementById('qrCode');
+
+    if (urlInput) {
+        // Önceki QR kodunu temizle
+        qrCodeDiv.innerHTML = '';
+
+        // Yeni QR kodu oluştur
+        new QRCode(qrCodeDiv, {
+            text: urlInput,
+            width: 128,
+            height: 128
+        });
+
+        message.classList.remove('hidden');
+        qrCodeContainer.classList.remove('hidden');
+    } else {
+        alert("Zəhmət olmasa URL daxil edin!");
+    }
+});
+    </script>
+    <script src="qrcode.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+    <script src="js/qrcode.js"></script>
+</body>
+</html>
