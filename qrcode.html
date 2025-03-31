@@ -4,17 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QR Kod Yaradıcı</title>
-    <link rel="stylsheet"  href="./css/qrcode.css">
-    <meta name="theme-color" content="#FF0000" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#872e4e" media="(prefers-color-scheme: dark)">
-    <link rel="stylesheet" href="./css/qrcode.css">
-    <style>
-        body {
+    <link rel="stylesheet" href="./src/css/qrcode.css">
+</head>
+<style>
+    body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(45deg, #007BFF, #00bfff);
+    background-color: #f0f0f0;
     font-family: Arial, sans-serif;
 }
 
@@ -117,13 +115,13 @@ button:hover::after {
     box-sizing: border-box;
 }
 
-body {
+/* body {
     font-family: "Source Sans 3", serif;
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
 
-}
+} */
 
 .darkmode {
     --base-color: #070b1d;
@@ -225,6 +223,7 @@ nav {
     align-items: center;
     justify-content: center;
     gap: 30px;
+    
 }
 
 
@@ -276,10 +275,10 @@ nav {
 
 
 
-.container {
+.container_2 {
     width: 100%;
     text-align: center;
-    display: flex;
+    display: block;
     margin-top: 50px;
 }
 
@@ -411,14 +410,14 @@ body{
     box-sizing: border-box;
 }
 
-body {
+/* body {
     font-family: "Source Sans 3", serif;
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
     
     margin-bottom: 100px;
-}
+} */
 .header_divider_users{
     width: 100%;
     height: 40px;
@@ -441,6 +440,13 @@ body {
 }
 .container {
     width: 100%;
+    
+    background-color: blueviolet;
+    
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+
 }
 .user_divider{
     width: 100%;
@@ -578,12 +584,107 @@ label{
     object-fit: cover;
     
 }
-    </style>
+#generateButton{
+    width: 100px;
+    height: 40px;
+    margin-left: 10px;
+}
+#urlInput{
+    width: 120px;
+    height: 40px;
+}
+#logoutButton{
+    width: 100px;
+    height: 40px;
+    
+}
 
-</head>
+</style>
 <body>
-    <script>
-        document.getElementById('generateButton').addEventListener('click', function() {
+    <button id="logoutButton">Çıkış Yap</button>
+    <button id="theme-switch">
+        <img
+          src="light_mode_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24 (1).svg"
+          alt="light_mode_svg"
+        />
+        <img
+          src="dark_mode_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg"
+          alt="dark_mode_svg"
+        />
+      </button>
+     
+        
+        <div class="container_2">
+        
+            <h1>QR Kod Yaradıcı</h1>
+            <input type="text" id="urlInput" placeholder="QR Kod için URL Girin: ">
+            <button id="generateButton">Yarat</button>
+            <div id="message" class="hidden">QR Kodunuz Hazırdır!</div>
+            <div id="qrCodeContainer" class="hidden">
+                <h2>QR Kodunuz:</h2>
+                <div id="qrCode"></div>
+            </div>
+            
+        
+        
+        <footer class="foter">
+            <nav>
+              <section>
+                <div class="navbar">
+                  <div class="icon_divider">
+                    <a class="menu_text" href="index.html" method="html"
+                      ><img
+                        class="menu_icon"
+                        src="home_icon.svg"
+                        alt="home"
+                    /></a>
+                  </div>
+                  <div class="icon_divider">
+                    <a class="menu_text" href="search.html"
+                      ><img
+                        class="menu_icon"
+                        src="li_search.svg"
+                        alt="search"
+                    /></a>
+                  </div>
+                  <div class="icon_divider_scasan">
+                    <a class="menu_text" href="qrcode.html" alt="scan-qr">
+                      <img
+                      width="30"
+                      height="30"
+                      src="add_a_photo_24dp_E8EAED_FILL1_wght400_GRAD0_opsz24.svg"
+                      alt="camera"
+                    />
+                    </a>
+                    
+                    <!-- <img class="menu_icon" src="/src/public/icons8-send-letter-50.png" alt="scan"> -->
+      
+                    
+                  </div>
+                  <div class="icon_divider">
+                    <a class="menu_text" href="../demo/index.html"
+                      ><img
+                        class="menu_icon"
+                        src="li_clock.svg"
+                        alt="clock"
+                    /></a>
+                  </div>
+                  <div class="icon_divider">
+                    <a class="menu_text" href="user.html"
+                      ><img
+                        class="menu_icon"
+                        src="li_user.svg"
+                        alt="user"
+                    /></a>
+                  </div>
+                </div>
+              </section>
+            </nav>
+          </footer>
+        </div>
+     
+<script>
+    document.getElementById('generateButton').addEventListener('click', function() {
     const urlInput = document.getElementById('urlInput').value;
     const message = document.getElementById('message');
     const qrCodeContainer = document.getElementById('qrCodeContainer');
@@ -596,8 +697,8 @@ label{
         // Yeni QR kodu oluştur
         new QRCode(qrCodeDiv, {
             text: urlInput,
-            width: 128,
-            height: 128
+            width: 150,
+            height: 150
         });
 
         message.classList.remove('hidden');
@@ -606,10 +707,39 @@ label{
         alert("Zəhmət olmasa URL daxil edin!");
     }
 });
+</script>
+  <script>
+        let darkmode = localStorage.getItem('darkmode')
+const themeSwitch = document.getElementById('theme-switch')
+
+
+const enableDarkmode = () => {
+    document.body.classList.add('darkmode')
+    localStorage.setItem('darkmode', 'active')
+}
+const disableDarkmode = () => {
+    document.body.classList.remove('darkmode')
+    localStorage.setItem('darkmode', null)
+}
+
+if (darkmode === 'active') enableDarkmode()
+
+themeSwitch.addEventListener("click", () =>{
+    darkmode = localStorage.getItem('darkmode')
+    darkmode !== "active" ? enableDarkmode() : disableDarkmode()
+})
     </script>
-    <script src="qrcode.js"></script>
+    <script type="text/javascript" src="darkmode.js" defer>
+
+    </script>
+    <script src="script.js"></script>
+   
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"
+    ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
-    <script src="js/qrcode.js"></script>
+    <script src="./src/js/qrcode.js"></script>
 </body>
 </html>
